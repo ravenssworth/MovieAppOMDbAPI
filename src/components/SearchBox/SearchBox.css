@@ -1,0 +1,52 @@
+.search-box {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	top: 55px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	width: 600px;
+}
+
+.input-box {
+	position: relative;
+}
+input {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid rgba(52, 51, 51, 0.25);
+	background: #f9f9f9;
+	border-radius: 5px;
+	outline: none;
+	color: #1d2b3a;
+	font-size: 1em;
+	transition: border-color 0.3s;
+}
+
+input:focus {
+	border-color: #49b293;
+}
+
+.search-movie {
+	position: absolute;
+	left: 6%;
+	top: 49%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	font-size: 1em;
+	color: rgba(55, 52, 52, 0.25);
+	text-transform: uppercase;
+	transition: 0.5s;
+}
+
+input:valid ~ .search-movie,
+input:focus ~ .search-movie {
+	color: #49b293;
+	transform: translateX(10px) translateY(-30px);
+	font-size: 0.65em;
+	padding: 0 10px;
+	background: #f9f9f9;
+	border-left: 1px solid #49b293;
+	border-right: 1px solid #49b293;
+}

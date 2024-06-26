@@ -1,0 +1,51 @@
+:root {
+	--black: #1a1a1a;
+	--white: #fff;
+	--green: #49b293;
+}
+
+.filter-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.filters {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.filters * {
+	display: inline-block;
+}
+
+input[type='radio'] {
+	position: absolute;
+	left: -9999px;
+}
+
+.filters label {
+	position: relative;
+	display: inline-block;
+	left: 1000px;
+	top: 45px;
+	padding: 0.5rem 1rem;
+	margin-bottom: 0.25rem;
+	border-radius: 2rem;
+	min-width: 50px;
+	line-height: normal;
+	cursor: pointer;
+	transition: all 0.1s;
+	margin-right: 10px;
+}
+
+.filters label:hover {
+	background: var(--green);
+	color: var(--white);
+}
+
+.filters label:hover,
+.filters label.active {
+	background: var(--green);
+	color: var(--white);
+}
