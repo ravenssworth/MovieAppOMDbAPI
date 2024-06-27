@@ -2,7 +2,7 @@
 	position: absolute;
 	margin-left: auto;
 	margin-right: auto;
-	top: 55px;
+	top: 29px;
 	left: 0;
 	right: 0;
 	text-align: center;
@@ -20,7 +20,7 @@ input {
 	border-radius: 5px;
 	outline: none;
 	color: #1d2b3a;
-	font-size: 1em;
+	font-size: 1.2em;
 	transition: border-color 0.3s;
 }
 
@@ -34,7 +34,7 @@ input:focus {
 	top: 49%;
 	transform: translateY(-50%);
 	pointer-events: none;
-	font-size: 1em;
+	font-size: 1.2em;
 	color: rgba(55, 52, 52, 0.25);
 	text-transform: uppercase;
 	transition: 0.5s;
@@ -43,8 +43,8 @@ input:focus {
 input:valid ~ .search-movie,
 input:focus ~ .search-movie {
 	color: #49b293;
-	transform: translateX(10px) translateY(-30px);
-	font-size: 0.65em;
+	transform: translateX(0px) translateY(-33px);
+	font-size: 1em;
 	padding: 0 10px;
 	background: #f9f9f9;
 	border-left: 1px solid #49b293;

@@ -1,10 +1,20 @@
 import './MovieList.css'
+import { useNavigate } from 'react-router-dom'
 
 const MovieList = props => {
+	const navigate = useNavigate()
+
+	const handleMovieClick = movie => {
+		navigate(`/movieinfo/${movie.imdbID}`, { state: { movie } })
+	}
 	return (
 		<div className='movies'>
 			{props.movies.map((movie, index) => (
-				<div className='movie' key={index}>
+				<div
+					className='movie'
+					key={index}
+					onClick={() => handleMovieClick(movie)}
+				>
 					<img
 						className='movie-poster'
 						src={movie.Poster}

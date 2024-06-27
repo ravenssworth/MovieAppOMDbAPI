@@ -28,15 +28,17 @@ input[type='radio'] {
 	position: relative;
 	display: inline-block;
 	left: 1000px;
-	top: 45px;
+	top: -82px;
 	padding: 0.5rem 1rem;
 	margin-bottom: 0.25rem;
-	border-radius: 2rem;
+	border-radius: 5px;
 	min-width: 50px;
 	line-height: normal;
 	cursor: pointer;
 	transition: all 0.1s;
 	margin-right: 10px;
+	font-size: 1.2em;
+	/* font-family: 'Bebas Neue', sans-serif; */
 }
 
 .filters label:hover {
