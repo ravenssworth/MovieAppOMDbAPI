@@ -5,8 +5,11 @@ const MovieList = props => {
 	const navigate = useNavigate()
 
 	const handleMovieClick = movie => {
-		navigate(`/movieinfo/${movie.imdbID}`, { state: { movie } })
+		navigate(`/movieinfo/${movie.imdbID}`, {
+			state: { movie, searchValue: props.searchValue },
+		})
 	}
+
 	return (
 		<div className='movies'>
 			{props.movies.map((movie, index) => (

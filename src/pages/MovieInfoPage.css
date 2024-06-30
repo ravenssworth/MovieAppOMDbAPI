@@ -1,0 +1,144 @@
+.movie-info__block {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.movie-info {
+	display: flex;
+	align-items: flex-start;
+	background-color: #f5f5f5;
+	flex-wrap: wrap;
+	border-radius: 5px;
+	padding: 20px;
+	width: 80%;
+	max-width: 1000px;
+	color: #747479;
+	box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+		0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.movie-info__content {
+	flex: 1;
+}
+.movie-info__poster {
+	flex: 0 0 auto;
+	max-width: 300px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.movie-info__header {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.movie-info__title {
+	font-size: 2.5em;
+	color: #2c2c2c;
+	margin: 0;
+}
+.movie-info__year {
+	font-size: 1.5em;
+	color: #747479;
+	margin: 0;
+	margin-left: 10px;
+}
+
+.movie-info__plot {
+	font-size: 1.2em;
+	margin-bottom: 10px;
+	text-align: start;
+}
+.movie-info__ratings {
+	flex: 0 0 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.movie-info__rating {
+	margin-bottom: auto;
+}
+
+/* @media (max-width: 1200px) {
+	.movie-info {
+		width: 90%;
+		padding: 15px;
+	}
+
+	.movie-info__title {
+		font-size: 2em;
+	}
+
+	.movie-info__plot {
+		font-size: 1em;
+	}
+
+	.movie-info__poster {
+		max-width: 250px;
+	}
+}
+
+@media (max-width: 768px) {
+	.movie-info {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.movie-info__poster {
+		margin-right: 0;
+	}
+
+	.movie-info__title,
+	.movie-info__plot {
+		text-align: center;
+	}
+
+	.movie-info__header {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.movie-info__year {
+		margin-left: 0;
+	}
+
+	.movie-info__button {
+		margin-left: 0;
+		margin-top: 10px;
+	}
+}
+
+@media (max-width: 480px) {
+	.movie-info {
+		width: 100%;
+		padding: 5px;
+	}
+
+	.movie-info__title {
+		font-size: 1.2em;
+	}
+
+	.movie-info__plot {
+		font-size: 0.8em;
+	}
+
+	.movie-info__poster {
+		max-width: 150px;
+	}
+
+	.movie-info__year,
+	.movie-info__rating {
+		font-size: 0.8em;
+		margin-bottom: 5px;
+	}
+
+	.movie-info__button {
+		font-size: 0.8em;
+		padding: 5px 10px;
+	}
+} */
