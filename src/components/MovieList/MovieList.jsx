@@ -1,6 +1,7 @@
 import './MovieList.css'
 import { useNavigate } from 'react-router-dom'
 import { getColorByRating } from '../../utils/ratingColors.js'
+import { getPoster, displayMessageIfNA } from '../../utils/movieUtils'
 const MovieList = props => {
 	const navigate = useNavigate()
 
@@ -20,12 +21,15 @@ const MovieList = props => {
 				>
 					<img
 						className='movie-poster'
-						src={movie.Poster}
+						src={getPoster(movie.Poster)}
 						alt={`Poster of ${movie.Title}`}
 					/>
 					<div className='movie-details'>
-						<p className='movie-title'>{movie.Title}</p>
-						<p className='movie-plot'>{movie.Plot}</p>
+						<div className='movie-header'>
+							<p className='movie-title'>{displayMessageIfNA(movie.Title)}</p>
+							<p className='movie-year'>{displayMessageIfNA(movie.Year)}</p>
+						</div>
+						<p className='movie-plot'>{displayMessageIfNA(movie.Plot)}</p>
 						<div className='movie-ratings'>
 							{movie.Ratings &&
 								movie.Ratings.filter(
@@ -44,7 +48,6 @@ const MovieList = props => {
 								))}
 						</div>
 					</div>
-					<p className='movie-year'>{movie.Year}</p>
 				</div>
 			))}
 		</div>
