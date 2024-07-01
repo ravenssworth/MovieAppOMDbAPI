@@ -1,6 +1,6 @@
 import './MovieList.css'
 import { useNavigate } from 'react-router-dom'
-
+import { getColorByRating } from '../../utils/ratingColors.js'
 const MovieList = props => {
 	const navigate = useNavigate()
 
@@ -23,19 +23,28 @@ const MovieList = props => {
 						src={movie.Poster}
 						alt={`Poster of ${movie.Title}`}
 					/>
-					<p className='movie-title'>{movie.Title}</p>
-					<p className='movie-year'>{movie.Year}</p>
-					<p className='movie-plot'>{movie.Plot}</p>
-					<div className='movie-ratings'>
-						{movie.Ratings &&
-							movie.Ratings.filter(
-								rating => rating.Source === 'Metacritic'
-							).map((rating, index) => (
-								<p key={index} className='movie-rating'>
-									{rating.Source}: {rating.Value}
-								</p>
-							))}
+					<div className='movie-details'>
+						<p className='movie-title'>{movie.Title}</p>
+						<p className='movie-plot'>{movie.Plot}</p>
+						<div className='movie-ratings'>
+							{movie.Ratings &&
+								movie.Ratings.filter(
+									rating => rating.Source === 'Metacritic'
+								).map((rating, index) => (
+									<p key={index} className='movie-rating'>
+										{rating.Source}:{' '}
+										<span
+											style={{
+												color: getColorByRating(rating.Value, rating.Source),
+											}}
+										>
+											{rating.Value}
+										</span>
+									</p>
+								))}
+						</div>
 					</div>
+					<p className='movie-year'>{movie.Year}</p>
 				</div>
 			))}
 		</div>

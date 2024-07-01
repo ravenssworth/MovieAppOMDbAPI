@@ -6,11 +6,13 @@ import SearchBox from '../components/SearchBox/SearchBox'
 import Filter from '../components/Filter/Filter'
 import useMovies from '../hooks/useMovies'
 import useSortedMovies from '../hooks/useSortedMovies'
+import Loading from '../components/Loading/Loading'
 import './MainPage.css'
 
 export default function MainPage() {
 	const [searchValue, setSearchValue] = useState('')
 	const [filter, setFilter] = useState('')
+	const [loading, setLoading] = useState(false)
 	const location = useLocation()
 
 	useEffect(() => {
@@ -21,17 +23,21 @@ export default function MainPage() {
 		}
 	}, [location.search])
 
-	const [movies] = useMovies(searchValue)
+	const [movies] = useMovies(searchValue, setLoading)
 	const sortedMovies = useSortedMovies(movies, filter)
 
 	return (
 		<div className='main-page'>
-			<header className='searchBlock-container'>
+			<header className='search-block'>
 				<MovieListHeading />
-				<Filter isActive={filter} setFilter={setFilter} />
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
+				<Filter isActive={filter} setFilter={setFilter} />
 			</header>
-			<MovieList movies={sortedMovies} searchValue={searchValue} />
+			{loading ? (
+				<Loading />
+			) : (
+				<MovieList movies={sortedMovies} searchValue={searchValue} />
+			)}
 		</div>
 	)
 }

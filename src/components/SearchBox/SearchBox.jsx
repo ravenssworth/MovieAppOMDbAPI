@@ -10,7 +10,7 @@ export default function SearchBox(props) {
 				type='text'
 				required='required'
 			/>
-			<span className='search-movie'>Search for a Movie</span>
+			<span>Search for a Movie</span>
 		</div>
 	)
 }

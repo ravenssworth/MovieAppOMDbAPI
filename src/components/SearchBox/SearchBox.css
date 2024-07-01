@@ -1,52 +1,42 @@
 .search-box {
-	position: absolute;
-	margin-left: auto;
-	margin-right: auto;
-	top: 29px;
-	left: 0;
-	right: 0;
-	text-align: center;
-	width: 600px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
 }
 
-.input-box {
-	position: relative;
-}
 input {
-	width: 100%;
+	width: 430px;
+	background: white;
 	padding: 10px;
 	border: 1px solid rgba(52, 51, 51, 0.25);
-	background: #f9f9f9;
 	border-radius: 5px;
 	outline: none;
 	color: #1d2b3a;
 	font-size: 1.2em;
 	transition: border-color 0.3s;
 }
-
 input:focus {
 	border-color: #49b293;
 }
 
-.search-movie {
+.search-box span {
 	position: absolute;
-	left: 6%;
-	top: 49%;
-	transform: translateY(-50%);
+	left: 0px;
+	padding: 3px 10px;
 	pointer-events: none;
 	font-size: 1.2em;
 	color: rgba(55, 52, 52, 0.25);
-	text-transform: uppercase;
 	transition: 0.5s;
 }
 
-input:valid ~ .search-movie,
-input:focus ~ .search-movie {
+.search-box input:valid ~ span,
+.search-box input:focus ~ span {
 	color: #49b293;
-	transform: translateX(0px) translateY(-33px);
-	font-size: 1em;
-	padding: 0 10px;
-	background: #f9f9f9;
+	transform: translateX(10px) translateY(-22px);
+	font-size: 0.8em;
+	background: white;
 	border-left: 1px solid #49b293;
 	border-right: 1px solid #49b293;
 }

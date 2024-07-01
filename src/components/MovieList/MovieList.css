@@ -1,24 +1,22 @@
 .movies {
 	display: flex;
 	justify-content: space-between;
-	align-items: flex-start;
+	align-items: stretch;
 	flex-wrap: wrap;
-	padding: 100px;
-	padding-top: 70px;
+	padding: 50px 100px 0 100px;
 	margin-top: 50px;
 }
 
 .movie {
+	position: relative;
 	display: flex;
-	width: 45%;
+	justify-content: space-between;
+	cursor: pointer;
 	background-color: white;
 	align-items: flex-start;
+	width: 45%;
 	margin-bottom: 70px;
-	justify-content: space-between;
-	font-weight: 300;
 	padding: 20px;
-	cursor: pointer;
-	position: relative;
 	transition: 0.3s;
 	border-radius: 5px;
 	font-size: 1.4rem;
@@ -29,6 +27,12 @@
 
 .movie:hover {
 	transform: scale(1.05);
+}
+
+.movie-details {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .movie-poster {
@@ -45,8 +49,9 @@
 }
 
 .movie-title,
-.movie-year {
-	font-weight: 300px;
+.movie-year,
+.movie-plot,
+.movie-ratings {
 	margin: 0;
 }
 
@@ -58,23 +63,12 @@
 
 .movie-year {
 	font-size: 18px;
-	margin-right: 15px;
-	margin-left: 5px;
 }
 
 .movie-ratings {
 	display: flex;
-	margin-top: 100px;
 	text-align: justify;
-	flex-direction: row;
-	position: absolute;
-	top: 200px;
-	left: 40%;
-}
-
-.movie-rating {
-	margin: 0;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 @media (max-width: 1200px) {

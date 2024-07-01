@@ -1,11 +1,4 @@
-/* * {
+@import url(https://fonts.googleapis.com/css?family=Bebas+Neue:regular);
+* {
 	font-family: 'Bebas Neue', sans-serif;
 }
-
-body {
-	position: relative;
-	background: #f9f9f9;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-} */

@@ -3,20 +3,20 @@
 	--white: #fff;
 	--green: #49b293;
 }
-
-.filter-container {
-	max-width: 1200px;
-	margin: 0 auto;
-	position: relative;
-}
-
-.filters {
-	text-align: center;
-	margin-bottom: 2rem;
+.filter-block {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+	margin: 12px;
 }
 
 .filters * {
 	display: inline-block;
+}
+.filters {
+	margin: 0;
+	padding: 0;
 }
 
 input[type='radio'] {
@@ -25,20 +25,14 @@ input[type='radio'] {
 }
 
 .filters label {
-	position: relative;
-	display: inline-block;
-	left: 1000px;
-	top: -82px;
 	padding: 0.5rem 1rem;
-	margin-bottom: 0.25rem;
 	border-radius: 5px;
-	min-width: 50px;
-	line-height: normal;
 	cursor: pointer;
-	transition: all 0.1s;
 	margin-right: 10px;
+	padding: 10px;
 	font-size: 1.2em;
-	/* font-family: 'Bebas Neue', sans-serif; */
+	min-width: 55px;
+	text-align: center;
 }
 
 .filters label:hover {
@@ -50,26 +44,4 @@ input[type='radio'] {
 .filters label.active {
 	background: var(--green);
 	color: var(--white);
-}
-
-/* Адаптивная стилизация */
-@media (max-width: 1200px) {
-	.filters label {
-		font-size: 1em;
-		left: 800px; /* изменить положение для адаптивности */
-		top: -70px;
-	}
-}
-
-@media (max-width: 768px) {
-	.filters label {
-		font-size: 0.9em;
-		left: 40%; /* перейти к использованию процентного значения */
-		top: -60px;
-	}
-}
-
-@media (max-width: 480px) {
-	.filters label {
-	}
 }

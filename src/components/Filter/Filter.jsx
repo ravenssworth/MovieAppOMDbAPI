@@ -1,7 +1,7 @@
 import './Filter.css'
 export default function Filter({ isActive, setFilter }) {
 	return (
-		<div className='filter-container'>
+		<div className='filter-block'>
 			<input
 				type='radio'
 				id='Rating'
@@ -24,7 +24,10 @@ export default function Filter({ isActive, setFilter }) {
 					</label>
 				</li>
 				<li>
-					<label className={isActive === 'Year' ? 'active' : ''} htmlFor='Year'>
+					<label
+						className={isActive === 'Year ' ? 'active' : ''}
+						htmlFor='Year'
+					>
 						YEAR
 					</label>
 				</li>

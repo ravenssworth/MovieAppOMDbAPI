@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 
-const useMovies = searchValue => {
+const useMovies = (searchValue, setLoading) => {
 	const [movies, setMovies] = useState([])
 
 	const getMovieRequest = async () => {
+		setLoading(true)
 		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=ed1c2b51`
 		const response = await fetch(url)
 		const responseJson = await response.json()
@@ -22,6 +23,7 @@ const useMovies = searchValue => {
 			const moviesWithDetails = await Promise.all(movieDetailsPromises)
 			setMovies(moviesWithDetails)
 		}
+		setLoading(false)
 	}
 
 	useEffect(() => {

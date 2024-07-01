@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import './MovieInfoPage.css'
 import Button from '../components/Button/Button'
 import useMovieDetails from '../hooks/useMovieDetails.jsx'
+import Loading from '../components/Loading/Loading'
+import { getColorByRating } from '../utils/ratingColors.js'
 
 function MovieInfoPage() {
 	const location = useLocation()
@@ -15,11 +17,15 @@ function MovieInfoPage() {
 	}
 
 	if (loading) {
-		return <h2>Loading movie data...</h2>
+		return <Loading />
 	}
 
 	if (!movieDetails) {
-		return <h2>No movie data available</h2>
+		return (
+			<div className='loading'>
+				<h2>No movie data available</h2>
+			</div>
+		)
 	}
 
 	return (
@@ -39,18 +45,36 @@ function MovieInfoPage() {
 						<h2 className='movie-info__title'>{movieDetails.Title}</h2>
 						<p className='movie-info__year'>{movieDetails.Year}</p>
 					</div>
-					<p className='movie-info__plot'>{movieDetails.Plot}</p>
-					<p className='movie-info__runtime'>Runtime: {movieDetails.Runtime}</p>
-					<p className='movie-info__writer'>Writer: {movieDetails.Writer}</p>
-					<p className='movie-info__actors'>Actors: {movieDetails.Actors}</p>
+					<p className='movie-info__runtime'>
+						<span>Runtime:</span> {movieDetails.Runtime}
+					</p>
+					<p className='movie-info__writer'>
+						<span>Writer:</span> {movieDetails.Writer}
+					</p>
+					<p className='movie-info__actors'>
+						<span>Actors: </span>
+						{movieDetails.Actors}
+					</p>
+					<p className='movie-info__genre'>
+						<span>Genre: </span>
+						{movieDetails.Genre}
+					</p>
+					<div className='movie-info__ratings'>
+						{movieDetails.Ratings?.map((rating, index) => (
+							<p key={index} className='movie-info__rating'>
+								<span>{rating.Source}: </span>
+								<span
+									style={{
+										color: getColorByRating(rating.Value, rating.Source),
+									}}
+								>
+									{rating.Value}
+								</span>
+							</p>
+						))}
+					</div>
 				</div>
-				<div className='movie-info__ratings'>
-					{movieDetails.Ratings?.map((rating, index) => (
-						<p key={index} className='movie-info__rating'>
-							{rating.Source}: {rating.Value}
-						</p>
-					))}
-				</div>
+				<p className='movie-info__plot'>{movieDetails.Plot}</p>
 				<Button onClick={handleBackClick} />
 			</div>
 		</div>
