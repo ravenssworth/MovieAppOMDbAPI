@@ -13,6 +13,7 @@ export default function MainPage() {
 	const [searchValue, setSearchValue] = useState('')
 	const [filter, setFilter] = useState('')
 	const [loading, setLoading] = useState(false)
+	const [moviesLoaded, setMoviesLoaded] = useState(false)
 	const location = useLocation()
 
 	useEffect(() => {
@@ -23,7 +24,12 @@ export default function MainPage() {
 		}
 	}, [location.search])
 
-	const [movies] = useMovies(searchValue, setLoading)
+	const [movies] = useMovies(searchValue, loadState => {
+		setLoading(loadState)
+		if (!loadState) {
+			setMoviesLoaded(true)
+		}
+	})
 	const sortedMovies = useSortedMovies(movies, filter)
 
 	return (
@@ -31,7 +37,11 @@ export default function MainPage() {
 			<header className='search-block'>
 				<MovieListHeading />
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
-				<Filter isActive={filter} setFilter={setFilter} />
+				<Filter
+					isActive={filter}
+					setFilter={setFilter}
+					moviesLoaded={moviesLoaded}
+				/>
 			</header>
 			{loading ? (
 				<Loading />
